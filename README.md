@@ -5,45 +5,46 @@ Renders live-region messages for screen readers and provides a simple hook for d
 
 > 🔊 Perfect for accessibility-friendly UIs, form feedback, status updates, or dynamic ARIA alerts.
 
----
+This package simplifies the process of announcing messages to screen readers by:
+
+- Managing announcements via React Context
+
+- Offering a default AnnouncementRegion component (screen reader only)
+
+- Allowing you to create your own custom rendering of announcements
+
+- Supporting both polite and assertive modes for Screen Readers
+
+<br />
 
 ## 📦 Installation
 
 **npm:**
 
 ```bash
-npm install --save-dev hex2r/react-announcer
+npm install --save-dev @hex2r/react-announcer
 ```
 
 **pnpm:**
 
 ```bash
-pnpm install --save-dev hex2r/react-announcer
+pnpm install --save-dev @hex2r/react-announcer
 ```
 
 **yarn:**
 
 ```bash
-yarn add --save-dev hex2r/react-announcer
+yarn add -D @hex2r/react-announcer
 ```
 
 ### Peer Dependencies
 
-`react version ^18.0.0`
-
-### 🔍 Description
-
-This package simplifies the process of announcing messages to screen readers by:
-
-Managing announcements via React Context
-
-Offering a default AnnouncementRegion component (screen reader only)
-
-Allowing you to create your own custom rendering of announcements
-
-Supporting both polite and assertive modes for Screen Readers
+`react version ^18.3.0`
+<br />
 
 ### Usage in your components
+
+Do it easy using `useAnnouncer()` hook
 
 ```jsx
 const { announce } = useAnnouncer()
@@ -56,6 +57,8 @@ const handleClick = () => {
 ```
 
 ### 📦 API Reference
+
+<br />
 
 `<AnnouncerProvider>`
 
@@ -72,6 +75,8 @@ Wraps your app and provides announcements state and dispatch function via contex
 </AnnouncerProvider>
 ```
 
+<br />
+
 `useAnnouncer() hook`
 
 Hook to dispatch announcements.
@@ -80,6 +85,8 @@ Hook to dispatch announcements.
 const { announce } = useAnnouncer()
 announce({ message: "User created", assertive: false })
 ```
+
+<br />
 
 `AnnouncementRegion`
 
@@ -91,6 +98,8 @@ Component that renders screen-reader accessible messages
 | `srOnlySupported` | `boolean`        | `false` | Use `className="sr-only"` instead of inline visually hidden styles |
 | `stackLimit`      | `number`         | `4`     | Number of last announcements to display                            |
 
+<br />
+
 ```jsx
 <AnnouncementRegion
   announcements={announcements}
@@ -98,6 +107,8 @@ Component that renders screen-reader accessible messages
   stackLimit={3}
 />
 ```
+
+<br />
 
 ### ♿ Accessibility Notes
 
